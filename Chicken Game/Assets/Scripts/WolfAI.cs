@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
+
 public class WolfAI : MonoBehaviour {
 
-
-	
 	public Transform player;
 	public Transform chicken;
-	public float speed;
-	public float randomX;
-	public float randomZ;
-	public float minWaitTime;
-	public float maxWaitTime;
-	private Vector3 currentRandomPos;
-	
-	
-	
 
+	public float speed = 5;
+	public float directionChangeInterval = 1;
+	public float maxHeadingChange = 30;
+
+	CharacterController controller;
+	float heading;
+	Vector3 targetRotation;	
+	
+	
 	void OnTriggerStay(Collider other){
 
 		if(other.gameObject.name == "Playa"){
@@ -32,42 +32,50 @@ public class WolfAI : MonoBehaviour {
 		}
 		}
 
-		void Start () {
-		PickPosition();
+			void Awake ()
+{
+		controller = GetComponent<CharacterController>();
+
+		heading = Random.Range(0, 360);
+		transform.eulerAngles = new Vector3(0, heading, 0);
+		
+		StartCoroutine(NewHeading());
+}	
+
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+		transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, targetRotation, Time.deltaTime * directionChangeInterval);
+		var forward = transform.TransformDirection(Vector3.forward);
+		controller.SimpleMove(forward * speed);
 	}
 
-	void PickPosition()
+	IEnumerator NewHeading ()
 	{
-		currentRandomPos = new Vector3(Random.Range(-randomX, randomX), 0, Random.Range(-randomZ, randomZ));
-		StartCoroutine( MoveToRandomPos());
+		while (true) {
+			NewHeadingRoutine();
+			yield return new WaitForSeconds(directionChangeInterval);
+		}
 	}
 
-	IEnumerator MoveToRandomPos()
-	{
-		float i = 0.0f;
-		float rate = 1.0f / speed;
-		Vector3 currentPos = transform.position;
-
-		while (i < 1.0f)
+	void NewHeadingRoutine ()
 		{
-			i += Time.deltaTime * rate;
-			transform.position = Vector3.Lerp( currentPos, currentRandomPos, i);
-			transform.LookAt(currentPos);
-			yield return null;
+			var floor = Mathf.Clamp(heading - maxHeadingChange, 0, 360);
+			var ceil = Mathf.Clamp(heading + maxHeadingChange, 0, 360);
+			heading = Random.Range(floor, ceil);
+			targetRotation = new Vector3(0, heading, 0);
 		}
+	
+}
 
-		float randomFloat = Random.Range(0.0f,1.0f);
-		if(randomFloat < 0.5f)
-		StartCoroutine ( WaitForSomeTime());
-		else
-		PickPosition();
-	}
 
-	IEnumerator WaitForSomeTime()
-	{
-		yield return new WaitForSeconds(Random.Range(minWaitTime, maxWaitTime));
-		PickPosition();
-	}
-		}
+		
+	
+
+	
 	
 

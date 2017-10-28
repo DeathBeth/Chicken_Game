@@ -4,32 +4,15 @@ using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 
-public class ChickenAI : MonoBehaviour {
+public class NewWander : MonoBehaviour {
 
-	public Transform enemy;
-	public Transform target;
+public float speed = 5;
+public float directionChangeInterval = 1;
+public float maxHeadingChange = 30;
 
-	public float speed = 5;
-	public float directionChangeInterval = 1;
-	public float maxHeadingChange = 30;
-
-	CharacterController controller;
-	float heading;
-	Vector3 targetRotation;
-
-	void OnTriggerStay(Collider other){
-
-		if(other.gameObject.name == "Playa"){
-			Debug.Log("Player has entered chickens trigger");
-			transform.LookAt(target);
-			transform.Translate(Vector3.back*speed*Time.deltaTime);
-		}
-		if(other.gameObject.name == "Cerebus"){
-			Debug.Log("Wolf has entered chickens trigger");
-			transform.LookAt(enemy);
-			transform.Translate(Vector3.back*speed*Time.deltaTime);
-			}
-	}
+CharacterController controller;
+float heading;
+Vector3 targetRotation;
 
 	void Awake ()
 {
@@ -67,12 +50,6 @@ public class ChickenAI : MonoBehaviour {
 			var ceil = Mathf.Clamp(heading + maxHeadingChange, 0, 360);
 			heading = Random.Range(floor, ceil);
 			targetRotation = new Vector3(0, heading, 0);
-		}	
-
-}
-
-
-
-
+		}
 	
-
+}
