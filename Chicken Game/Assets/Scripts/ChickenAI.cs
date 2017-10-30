@@ -9,9 +9,9 @@ public class ChickenAI : MonoBehaviour {
 	public Transform enemy;
 	public Transform target;
 
-	public float speed = 5;
-	public float directionChangeInterval = 1;
-	public float maxHeadingChange = 30;
+	public float speed = 4;
+	public float directionChangeInterval = 20;
+	public float maxHeadingChange = 50;
 
 	CharacterController controller;
 	float heading;

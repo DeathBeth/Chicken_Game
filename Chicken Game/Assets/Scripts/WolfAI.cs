@@ -10,8 +10,8 @@ public class WolfAI : MonoBehaviour {
 	public Transform chicken;
 
 	public float speed = 5;
-	public float directionChangeInterval = 1;
-	public float maxHeadingChange = 30;
+	public float directionChangeInterval = 15;
+	public float maxHeadingChange = 50;
 
 	CharacterController controller;
 	float heading;
