@@ -9,15 +9,30 @@ public class WolfAI : MonoBehaviour {
 	public Transform player;
 	public Transform chicken;
 
+	public Transform Wall;
+
 	public float speed = 5;
 	public float directionChangeInterval = 15;
 	public float maxHeadingChange = 50;
 
 	CharacterController controller;
 	float heading;
-	Vector3 targetRotation;	
+	Vector3 targetRotation;
+
+	bool shouldMove = true;	
 	
+	// void OnTriggerTurn(Collider other){
+	// 	if(other.gameObject.name == "Wall"){
+	// 		transform.Translate(Vector3.)
+	// 	}
+	// }
 	
+	void OnCollisionEnter(Collision collision) {
+   if (collision.gameObject.name == "Wall") {            
+       Debug.Log ("Hit Wall!");
+       shouldMove = false;   
+   }
+}
 	void OnTriggerStay(Collider other){
 
 		if(other.gameObject.name == "Playa"){
