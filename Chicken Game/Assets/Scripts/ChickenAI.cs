@@ -9,35 +9,64 @@ public class ChickenAI : MonoBehaviour {
 	public Transform enemy;
 	public Transform target;
 
-	public Collider chickenCollider;
+	// public Collider chickenCollider;
 
-	public float speed = 1;
-	public float directionChangeInterval = 20;
-	public float maxHeadingChange = 50;
+	public float speed = 5.0f;
+	public float rotSpeed = 10.0f;
+	Vector3 turnAround = new Vector3(0,1,0);
 
-	CharacterController controller;
+	// public float directionChangeInterval = 20;
+	// public float maxHeadingChange = 50;
+
+	// CharacterController controller;
 	float heading;
-	Vector3 targetRotation;
+	// Vector3 targetRotation;
 
 	public Transform chickenPen;
 	public int points = 10;
 
-	public bool inView;
+	// public bool inView;
 
 
-	void OnTriggerStay(Collider other){
+	// void OnTriggerStay(Collider other){
 
-		if(other.gameObject.name == "Playa"){
-			Debug.Log("Player has entered chickens trigger");
-			transform.LookAt(target);
-			transform.Translate(Vector3.back*speed*Time.deltaTime);
-		}
-		if(other.gameObject.name == "Cerebus"){
-			Debug.Log("Wolf has entered chickens trigger");
-			transform.LookAt(enemy);
-			transform.Translate(Vector3.back*speed*Time.deltaTime);
-			}
+	// 	if(other.gameObject.name == "Playa"){
+	// 		Debug.Log("Player has entered chickens trigger");
+	// 		transform.LookAt(target);
+	// 		transform.Translate(Vector3.back*speed*Time.deltaTime);
+	// 	}
+	// 	if(other.gameObject.name == "Cerebus"){
+	// 		Debug.Log("Wolf has entered chickens trigger");
+	// 		transform.LookAt(enemy);
+	// 		transform.Translate(Vector3.back*speed*Time.deltaTime);
+	// 		}
+	// }
+
+	void Update (){
+		Wander();
 	}
+
+	void Wander(){
+
+		transform.Translate(Vector3.forward * speed * Time.deltaTime);
+	}
+
+	void OnTriggerStay2(Collider other)
+	{
+		if (other.gameObject.tag == "wall"){
+			transform.Rotate(turnAround * rotSpeed * Time.deltaTime);
+		}
+	}
+
+
+
+
+
+
+
+
+
+
 
 // 	void Awake ()
 // {
