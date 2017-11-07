@@ -68,6 +68,7 @@ public class ChickenAI : MonoBehaviour {
 
 
 
+
 // 	void Awake ()
 // {
 // 		controller = GetComponent<CharacterController>();
