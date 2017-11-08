@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - wall
+  - player
+  - wolf
+  - chicken
   layers:
   - Default
   - TransparentFX
