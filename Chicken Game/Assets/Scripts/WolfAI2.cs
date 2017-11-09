@@ -11,34 +11,30 @@ public class WolfAI2 : MonoBehaviour {
 	public Transform player;
 	public float damage;
 
+	void Update () {
+	
+		Wander();
+	}
+
 	void OnTriggerStay(Collider other){
 		
 		if(other.gameObject.tag == "player"){
 			transform.LookAt(player);
 			transform.Translate(Vector3.forward * speed * Time.deltaTime);
 		}
-		if(other.gameObject.tag == "chicken"){
-			transform.LookAt(chicken);
-			transform.Translate(Vector3.forward * speed * Time.deltaTime);
-		}
 	}
 	
-	void Update () {
+
+	void OnTriggerEnter(Collider other){
+		if(other.gameObject.tag == "wall"){
+			transform.Rotate(0,180,0);
 	
-		Wander();
+		}
 	}
 
 	void Wander(){
 		transform.Translate(Vector3.forward * speed * Time.deltaTime);
 	}
 	
-		
-
-	void OnTriggerStay2(Collider other){
-		if(other.gameObject.tag == "wall"){
-			transform.Rotate(turnAround * rotSpeed * Time.deltaTime);
-	
-		}
-	}
 
 }
