@@ -10,6 +10,9 @@ public class ChickenAI2 : MonoBehaviour {
 	public Transform player;
 	Vector3 turnAround = new Vector3(0,1,0);
 	public Quaternion rot;
+	public Transform chickenPen;
+	public int points;
+
 
 	void Update () {
 		Wander();
@@ -28,20 +31,20 @@ public class ChickenAI2 : MonoBehaviour {
 		}
 	}
 
-	// void OnTriggerStay(Collider other){
-	// 	if(other.gameObject.tag == "wall"){
-	// 		transform.Rotate(0,180,0);
-
-	// 	}
-	// 	}
 
 	void Wander(){
 		transform.Translate(Vector3.forward * speed * Time.deltaTime);
 	}
-	
 
-
-
-	
+	void OnCollisionEnter(Collision other){
+		if(other.gameObject.tag =="player"){
+			ScoreManager.AddPoints(points);
+			//add points to score
+			transform.position = chickenPen.position;
+			transform.rotation = chickenPen.rotation;
+			//send chicken to chicken pen
+		}
+	}
+		
 	}	
 

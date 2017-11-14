@@ -9,6 +9,7 @@ TagManager:
   - wolf
   - chicken
   - checkpoint
+  - chicken pen
   layers:
   - Default
   - TransparentFX

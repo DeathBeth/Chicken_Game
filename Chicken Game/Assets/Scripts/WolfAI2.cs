@@ -9,7 +9,9 @@ public class WolfAI2 : MonoBehaviour {
 	Vector3 turnAround = new Vector3(0,1,0);
 	public Transform chicken;
 	public Transform player;
-	public float damage;
+	public int damage;
+
+	public GameObject pcHealth;
 
 	void Update () {
 	
@@ -21,7 +23,9 @@ public class WolfAI2 : MonoBehaviour {
 		if(other.gameObject.tag == "player"){
 			transform.LookAt(player);
 			transform.Translate(Vector3.forward * speed * Time.deltaTime);
+			print("Wolf is following!");
 		}
+		
 	}
 	
 
@@ -35,6 +39,24 @@ public class WolfAI2 : MonoBehaviour {
 	void Wander(){
 		transform.Translate(Vector3.forward * speed * Time.deltaTime);
 	}
+
+	void OnCollisionEnter(Collision other){
+
+		if(other.gameObject.name == "Playa"){
+			var hit = other.gameObject;
+			var health = hit.GetComponent<PlayerHealth>();
+			print("Wolf is attacking!");
+
+			if(pcHealth != null){
+				// pcHealth.TakeDamage(damage);
+				pcHealth.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+					
+			}
+		}
+		
+	}
+		
+}
 	
 
-}
+

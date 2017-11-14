@@ -115,15 +115,15 @@ public class ChickenAI : MonoBehaviour {
 	// 		targetRotation = new Vector3(0, heading, 0);
 	// 	}	
 
-	// void OnCollisionEnter(Collision other){
-	// 	if(other.gameObject.name =="Playa"){
-	// 		ScoreManager.AddPoints(points);
-	// 		//add points to score
-	// 		transform.position = chickenPen.position;
-	// 		transform.rotation = chickenPen.rotation;
-	// 		//send chicken to chicken pen
-	// 	}
-	// }
+	void OnCollisionEnter(Collision other){
+		if(other.gameObject.name =="Playa"){
+			ScoreManager.AddPoints(points);
+			//add points to score
+			transform.position = chickenPen.position;
+			transform.rotation = chickenPen.rotation;
+			//send chicken to chicken pen
+		}
+	}
 
 }
 
