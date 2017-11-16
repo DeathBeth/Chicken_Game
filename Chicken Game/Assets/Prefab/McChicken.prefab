@@ -22,13 +22,12 @@ GameObject:
   - component: {fileID: 33089038593164516}
   - component: {fileID: 65609970935244312}
   - component: {fileID: 23917133847109488}
-  - component: {fileID: 114793847931072548}
   - component: {fileID: 65063326583158242}
   - component: {fileID: 54041206311747414}
-  - component: {fileID: 114948675246539856}
+  - component: {fileID: 114058081106774006}
   m_Layer: 0
   m_Name: McChicken
-  m_TagString: Untagged
+  m_TagString: chicken
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1924770890544942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.79, y: 1, z: 32.42}
+  m_LocalPosition: {x: -29.81, y: 0.72, z: 25.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,7 +97,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!65 &65063326583158242
 BoxCollider:
@@ -110,7 +109,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 1, z: 20}
+  m_Size: {x: 12.02, y: 1, z: 15.3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65609970935244312
 BoxCollider:
@@ -124,20 +123,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114793847931072548
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924770890544942}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3994222c330017442b87f05111926686, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Chicken: {fileID: 4623060156463056}
---- !u!114 &114948675246539856
+--- !u!114 &114058081106774006
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -145,14 +131,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1924770890544942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abd572abd9cec424c80ae8a3e1cde3c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d17e331bd7418e4094def82906867e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  randomX: 15
-  randomZ: 15
-  minWaitTime: 1
-  maxWaitTime: 5
-  enemy: {fileID: 0}
-  target: {fileID: 0}
+  speed: 8
+  rotSpeed: 120
+  wolf: {fileID: 0}
+  player: {fileID: 0}
+  rot: {x: 0, y: 0, z: 0, w: 0}
   chickenPen: {fileID: 0}
+  points: 1
