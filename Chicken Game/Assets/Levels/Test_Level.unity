@@ -446,7 +446,7 @@ Transform:
   m_GameObject: {fileID: 275324274}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0.48965505, y: 0, z: 26.88368}
-  m_LocalScale: {x: 52.832764, y: 1, z: 0.018927664}
+  m_LocalScale: {x: 52.832764, y: 1, z: 0.019427307}
   m_Children: []
   m_Father: {fileID: 1246552526}
   m_RootOrder: 2
@@ -766,7 +766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 228, y: -57.3}
+  m_AnchoredPosition: {x: 136, y: -3}
   m_SizeDelta: {x: 162.1, y: 36.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &619054972
@@ -841,7 +841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 753, y: -53}
+  m_AnchoredPosition: {x: 758.1, y: 3}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &752079322
@@ -927,7 +927,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 97, y: -54}
+  m_AnchoredPosition: {x: 5, y: 0.2999878}
   m_SizeDelta: {x: 243.8, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765040222
@@ -1270,6 +1270,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -1337,7 +1351,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4247273475838728, guid: db2cf4d29d06f24468ee3b25d6942012, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.14
+      value: 1.11
       objectReference: {fileID: 0}
     - target: {fileID: 4247273475838728, guid: db2cf4d29d06f24468ee3b25d6942012, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1371,7 +1385,22 @@ Prefab:
     - target: {fileID: 54642268623009866, guid: db2cf4d29d06f24468ee3b25d6942012,
         type: 2}
       propertyPath: m_Constraints
-      value: 116
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 114905077902568604, guid: db2cf4d29d06f24468ee3b25d6942012,
+        type: 2}
+      propertyPath: jumpHeight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 54642268623009866, guid: db2cf4d29d06f24468ee3b25d6942012,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54256790721153756, guid: db2cf4d29d06f24468ee3b25d6942012,
+        type: 2}
+      propertyPath: m_Mass
+      value: 5000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db2cf4d29d06f24468ee3b25d6942012, type: 2}
@@ -1408,7 +1437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 661, y: -53}
+  m_AnchoredPosition: {x: 660.99994, y: 3}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1041898377
@@ -1545,6 +1574,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 1, z: 2.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1160041376 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4413952033524890, guid: db2cf4d29d06f24468ee3b25d6942012,
+    type: 2}
+  m_PrefabInternal: {fileID: 1023554321}
 --- !u!1 &1246552522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1741,6 +1775,54 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 1, z: 2.13}
   m_Center: {x: 4.656613e-10, y: 0, z: 0.0000076293945}
+--- !u!1 &1450533187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1450533188}
+  m_Layer: 0
+  m_Name: spawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -3701561207968579530, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1450533188
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1450533187}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.2, y: 1.4, z: -75.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1523692138 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1149661627276858, guid: db2cf4d29d06f24468ee3b25d6942012,
+    type: 2}
+  m_PrefabInternal: {fileID: 1023554321}
+--- !u!114 &1523692144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1523692138}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa6002ffea84084b8e6030430e11867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 54178228786191582, guid: ce5a210f7bcfc7f458fa250a03cae115,
+    type: 2}
+  shootPoint: {fileID: 1160041376}
+  shootSpeed: 75
 --- !u!1 &1562942754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,6 +1837,7 @@ GameObject:
   - component: {fileID: 1562942759}
   - component: {fileID: 1562942761}
   - component: {fileID: 1562942762}
+  - component: {fileID: 1562942760}
   m_Layer: 0
   m_Name: Cerberus
   m_TagString: wolf
@@ -1841,6 +1924,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &1562942760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1562942754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 477ec409502632d43b09f2edf48f5fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 3
+  maxHealth: 3
+  spawnPoint: {fileID: 1450533188}
+  points: 10
 --- !u!65 &1562942761
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2243,7 +2341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 167, y: -57.3}
+  m_AnchoredPosition: {x: 75, y: -3}
   m_SizeDelta: {x: 162.1, y: 36.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1993794355
@@ -2404,7 +2502,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: -57.3}
+  m_AnchoredPosition: {x: 108, y: -3.0000114}
   m_SizeDelta: {x: 162.1, y: 36.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2069799101

@@ -40,7 +40,8 @@ public class PlayerMove : MonoBehaviour {
 			bulletSpawn.rotation);
 
 			bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 120;
-			Destroy(bullet, 2.0f);
+			Destroy(bullet, 0.5f);
 		
 	}
 }
+
