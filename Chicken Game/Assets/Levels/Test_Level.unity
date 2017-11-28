@@ -909,7 +909,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 599, y: 3}
+  m_AnchoredPosition: {x: 762, y: 3}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &752079322
@@ -1246,7 +1246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -248, y: 181}
+  m_AnchoredPosition: {x: -345, y: 240}
   m_SizeDelta: {x: 243.8, y: 36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &948207829
@@ -1338,6 +1338,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -1389,7 +1403,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -248, y: 181}
+  m_AnchoredPosition: {x: -345, y: 240}
   m_SizeDelta: {x: 243.8, y: 36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1023554321
@@ -1491,7 +1505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 499, y: 3}
+  m_AnchoredPosition: {x: 664, y: 3}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1041898377
@@ -1876,7 +1890,7 @@ MonoBehaviour:
   projectile: {fileID: 54178228786191582, guid: ce5a210f7bcfc7f458fa250a03cae115,
     type: 2}
   shootPoint: {fileID: 1160041376}
-  shootSpeed: 75
+  shootSpeed: 10
 --- !u!1 &1562942754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,7 +1955,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.27, y: 1.12, z: 1.16}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1562942757
 MeshFilter:
@@ -1992,6 +2006,7 @@ MonoBehaviour:
   currentHealth: 5
   maxHealth: 5
   spawnPoint: {fileID: 1450533188}
+  points: 20
 --- !u!65 &1562942761
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2358,6 +2373,16 @@ Prefab:
         type: 2}
       propertyPath: m_Constraints
       value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 114058081106774006, guid: 94794f8320df4c44fbc14d0b900ce7a9,
+        type: 2}
+      propertyPath: currentHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114058081106774006, guid: 94794f8320df4c44fbc14d0b900ce7a9,
+        type: 2}
+      propertyPath: minusPoints
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94794f8320df4c44fbc14d0b900ce7a9, type: 2}
