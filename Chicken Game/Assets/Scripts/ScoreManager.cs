@@ -25,6 +25,9 @@ public class ScoreManager : MonoBehaviour {
 	public static void AddPoints(int pointsToAdd){
 		score += pointsToAdd;
 	}
+	public static void MinusPoints(int pointsToMinus){
+		score -= pointsToMinus;
+	}
 
 	public void Reset(){
 		score=0;

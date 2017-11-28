@@ -9,6 +9,9 @@ public class wolfHealth2 : MonoBehaviour {
 	public int maxHealth = 5;
 	public Transform spawnPoint;
 
+	public int points = 20;
+
+
 
 	public void OnCollisionEnter(Collision boom){
 		if(boom.gameObject.tag == "bullet"){
@@ -19,8 +22,10 @@ public class wolfHealth2 : MonoBehaviour {
 				// Destroy(gameObject);
 				print("Wolf is respawning...");
 				transform.position = spawnPoint.position;
-				// transform.rotation = spawnPoint.rotation;
+				int randomNum = Random.Range(0,360);
+				transform.Rotate(0,randomNum,0);
 				currentHealth = maxHealth;
+				ScoreManager.AddPoints(points);
 			}
 		}
 	}

@@ -12,6 +12,11 @@ public class ChickenAI2 : MonoBehaviour {
 	public Quaternion rot;
 	public Transform chickenPen;
 	public int points = 10;
+	public int minusPoints;
+
+	public int currentHealth = 0;
+	public int maxHealth = 1;
+
 
 	void OnTriggerStay(Collider other){
 		if(other.gameObject.tag == "player"){
@@ -49,7 +54,21 @@ public class ChickenAI2 : MonoBehaviour {
 			transform.rotation = chickenPen.rotation;
 			
 		}
+
+		if(other.gameObject.tag == "bullet"){
+			print("You shot a chicken!");
+			currentHealth -= 1;
+			if(currentHealth <= 0){
+				print("Chicken killed!");
+				Destroy(gameObject);
+				ScoreManager.MinusPoints(minusPoints);	
 	}
+
 	
 
+	}
+	}
 }
+	
+
+
