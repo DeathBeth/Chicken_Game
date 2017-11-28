@@ -10,6 +10,7 @@ TagManager:
   - chicken
   - checkpoint
   - chicken pen
+  - bullet
   layers:
   - Default
   - TransparentFX

@@ -12,10 +12,12 @@ public class WolfAI2 : MonoBehaviour {
 	public int damage;
 
 	public GameObject pcHealth;
+	
 
 	void Update () {
 	
 		Wander();
+	
 	}
 
 	void OnTriggerStay(Collider other){
@@ -27,7 +29,20 @@ public class WolfAI2 : MonoBehaviour {
 		}
 		
 	}
-	
+	void Wander(){
+		transform.Translate(Vector3.forward * speed * Time.deltaTime);
+		// StartCoroutine("waitToTurn");
+		
+		}
+		
+	// IEnumerator waitToTurn(){
+	// 	yield return new WaitForSeconds(4);
+		// int randomNum = Random.Range(0,360);
+		// transform.Rotate(0,randomNum,0);
+		// yield return new WaitForSeconds(1);	
+		// Wander();
+		
+	// }
 
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "wall"){
@@ -36,9 +51,8 @@ public class WolfAI2 : MonoBehaviour {
 		}
 	}
 
-	void Wander(){
-		transform.Translate(Vector3.forward * speed * Time.deltaTime);
-	}
+	
+
 
 	void OnCollisionEnter(Collision other){
 
@@ -52,11 +66,21 @@ public class WolfAI2 : MonoBehaviour {
 				pcHealth.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
 					
 			}
-		}
-		
+
+			}
+		}		
 	}
+
 		
-}
+
+	
+		
+		
+	
+
+	
+		
+
 	
 
 
