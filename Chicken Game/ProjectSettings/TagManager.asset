@@ -11,6 +11,8 @@ TagManager:
   - checkpoint
   - chicken pen
   - bullet
+  - wcheckpoint
+  - turnCheck
   layers:
   - Default
   - TransparentFX

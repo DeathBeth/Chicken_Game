@@ -29,29 +29,28 @@ public class WolfAI2 : MonoBehaviour {
 		}
 		
 	}
+
+	void Turn(){
+	int randomNum = Random.Range(0,360);
+	transform.Rotate(0,randomNum,0);
+	}
+
 	void Wander(){
 		transform.Translate(Vector3.forward * speed * Time.deltaTime);
-		// StartCoroutine("waitToTurn");
-		
 		}
-		
-	// IEnumerator waitToTurn(){
-	// 	yield return new WaitForSeconds(4);
-		// int randomNum = Random.Range(0,360);
-		// transform.Rotate(0,randomNum,0);
-		// yield return new WaitForSeconds(1);	
-		// Wander();
-		
-	// }
+	
 
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "wall"){
-			transform.Rotate(0,180,0);
-	
+			Turn();
+		}
+		else{
+			Wander();
 		}
 	}
-
 	
+
+
 
 
 	void OnCollisionEnter(Collision other){
@@ -68,6 +67,8 @@ public class WolfAI2 : MonoBehaviour {
 			}
 
 			}
+		
+
 		}		
 	}
 

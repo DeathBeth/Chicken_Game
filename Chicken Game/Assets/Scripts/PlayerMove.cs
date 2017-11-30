@@ -8,8 +8,8 @@ public class PlayerMove : MonoBehaviour {
 	public float moveSpeed;
 	public float turnSpeed;
 	public float jumpHeight;
-	public GameObject bulletPrefab;
-	public Transform bulletSpawn;
+	// public GameObject bulletPrefab;
+	// public Transform bulletSpawn;
 	// public int coolDown = 3;
 	// public bool canShoot = true;
 
@@ -30,25 +30,8 @@ public class PlayerMove : MonoBehaviour {
 		transform.Translate(0,0,z);
 		transform.Translate(0,j,0);
 	}
+}
 
-		public void Fire(){
-	 	if(Input.GetKeyDown(KeyCode.Mouse0)){
-				Shot();
-			}
-		}
-
-    	void Shot() {
-
-            var bullet = (GameObject)Instantiate(
-               bulletPrefab,
-               bulletSpawn.position,
-               bulletSpawn.rotation);
-
-            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 50;
-            
-			Destroy(bullet, 0.5f);
-        }
-    }
 
 
 

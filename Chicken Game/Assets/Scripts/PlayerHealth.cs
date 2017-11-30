@@ -27,5 +27,8 @@ public class PlayerHealth : MonoBehaviour {
 			currentHealth=0;
 			print("You're dead! Game Over!");
 		}
+
+
+	
 	}
 }
