@@ -8,9 +8,9 @@ public class bullet : MonoBehaviour {
 	public int time = 5;
 
 	// Use this for initialization
-	// void Start () {
-	// 	StartCoroutine(DestroyBullet());
-	// }
+	void Start () {
+		StartCoroutine(DestroyBullet());
+	}
 
 	// void OnCollisionEnter(Collision other){
 	// 	var hit = other.gameObject;
@@ -28,7 +28,7 @@ public class bullet : MonoBehaviour {
 		Destroy(gameObject);
 			}
 
-	void OnCollisionEnter(Collision other){
+	void OnCollisionStay(Collision other){
 		if(other.gameObject){
 		Destroy(gameObject);
 		}

@@ -25,21 +25,28 @@ public class ChickenAI2 : MonoBehaviour {
 		}
 	}
 
-	// Update is called once per frame
+	
 	void Update () {
 		Wander ();
 	}
 
-
-	// void OnTriggerEnter(Collider other){
-	// 	if(other.gameObject.tag == "wall"){
-	// 		transform.Rotate(turnAround * rotSpeed * Time.deltaTime);	
-	// 		}
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "wall"){
-			transform.Rotate(0,180,0);
+			Turn();
+			// transform.Rotate(0,180,0);
 	
+		if(other.gameObject.tag == "checkpoint"){
+			Turn();
 		}
+		else{
+			Wander();
+		}
+		}
+	}
+
+	void Turn(){
+	int randomNum = Random.Range(0,360);
+	transform.Rotate(0,randomNum,0);
 	}
 	
 	void Wander(){
@@ -47,11 +54,13 @@ public class ChickenAI2 : MonoBehaviour {
 	}
 
 
+
 	void OnCollisionEnter(Collision other){
 		if(other.gameObject.tag =="player"){
 			ScoreManager.AddPoints(points);
 			transform.position = chickenPen.position;
 			transform.rotation = chickenPen.rotation;
+
 			
 		}
 
@@ -63,9 +72,6 @@ public class ChickenAI2 : MonoBehaviour {
 				Destroy(gameObject);
 				ScoreManager.MinusPoints(minusPoints);	
 	}
-
-	
-
 	}
 	}
 }

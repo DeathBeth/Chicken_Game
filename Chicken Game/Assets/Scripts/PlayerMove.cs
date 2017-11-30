@@ -10,8 +10,8 @@ public class PlayerMove : MonoBehaviour {
 	public float jumpHeight;
 	public GameObject bulletPrefab;
 	public Transform bulletSpawn;
-	public int coolDown = 3;
-	public bool canShoot = true;
+	// public int coolDown = 3;
+	// public bool canShoot = true;
 
 
 	// Use this for initialization
@@ -33,27 +33,22 @@ public class PlayerMove : MonoBehaviour {
 
 		public void Fire(){
 	 	if(Input.GetKeyDown(KeyCode.Mouse0)){
-			// if(canShoot == true){
-				StartCoroutine (shoot());
+				Shot();
 			}
 		}
-	//  }
 
-
-    IEnumerator shoot() {
+    	void Shot() {
 
             var bullet = (GameObject)Instantiate(
                bulletPrefab,
                bulletSpawn.position,
                bulletSpawn.rotation);
-			//    canShoot = false;
 
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 50;
-            Destroy(bullet, 0.5f);
-
-           yield return new WaitForSeconds(coolDown);
-		//    	canShoot = true;
+            
+			Destroy(bullet, 0.5f);
         }
     }
+
 
 
