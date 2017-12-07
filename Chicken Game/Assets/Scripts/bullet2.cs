@@ -6,7 +6,7 @@ public class bullet2 : MonoBehaviour {
 
 	public GameObject bulletPrefab;
 	public Transform bulletSpawn;
-	public int bulletSpeed = 30;
+	public int bulletSpeed = 60;
 
 
 	// Use this for initialization
@@ -28,6 +28,8 @@ public class bullet2 : MonoBehaviour {
 			bulletSpawn.rotation);
 
 			bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletSpeed;
-			Destroy(bullet, 2.0f);
+			Destroy(bullet, 1.0f);
 		}
+		
 }
+

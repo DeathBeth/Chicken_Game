@@ -13,6 +13,7 @@ TagManager:
   - bullet
   - wcheckpoint
   - turnCheck
+  - wolfCheck
   layers:
   - Default
   - TransparentFX

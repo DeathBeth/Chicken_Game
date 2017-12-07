@@ -28,6 +28,15 @@ public class ChickenAI2 : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
+		if(other.gameObject.tag == "player"){
+			Turn();
+			transform.Translate(Vector3.forward * speed * Time.deltaTime);
+		}
+		if(other.gameObject.tag == "wolf"){
+			Turn();
+			transform.Translate(Vector3.forward * speed * Time.deltaTime);
+		}
+
 		if(other.gameObject.tag == "wall"){
 			Turn();
 		}
@@ -40,13 +49,6 @@ public class ChickenAI2 : MonoBehaviour {
 		}
 		}
 
-	void OnTriggerStay(Collider other){
-		if(other.gameObject.tag == "player"){
-			transform.rotation = new Quaternion(0,180,0,0);
-			transform.Translate(Vector3.forward * speed * Time.deltaTime);
-		}
-	}
-
 	void Wander(){
 		transform.Translate(Vector3.forward * speed * Time.deltaTime);
 	}
@@ -54,12 +56,11 @@ public class ChickenAI2 : MonoBehaviour {
 
 
 	void OnCollisionEnter(Collision other){
+		
 		if(other.gameObject.tag =="player"){
 			ScoreManager.AddPoints(points);
 			transform.position = chickenPen.position;
 			transform.rotation = chickenPen.rotation;
-
-			
 		}
 
 		if(other.gameObject.tag == "bullet"){
@@ -67,14 +68,24 @@ public class ChickenAI2 : MonoBehaviour {
 			currentHealth -= 1;
 			if(currentHealth <= 0){
 				print("Chicken killed!");
-				Destroy(gameObject);
+				Destroy(this.gameObject);
 				ScoreManager.MinusPoints(minusPoints);	
 	}
+		}
+		if(other.gameObject.tag == "wolf"){
+			print("Wolf ate chicken!");
+			currentHealth -=1;
+			if(currentHealth <=0){
+				print("Chicken eaten!");
+				Destroy(this.gameObject);
+				ScoreManager.MinusPoints(minusPoints);
+			}
+		}
 	}
 	}
 
 	
-}
+
 	
 
 
