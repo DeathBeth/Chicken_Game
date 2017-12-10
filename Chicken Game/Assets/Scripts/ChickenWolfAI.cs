@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChickenWolfAI : MonoBehaviour {
 
@@ -15,6 +16,7 @@ public class ChickenWolfAI : MonoBehaviour {
 
 	// public GameObject pcHealth;
 	
+	
 
 	void Update () {
 	
@@ -22,7 +24,7 @@ public class ChickenWolfAI : MonoBehaviour {
 	
 	}
 
-	void OnTriggerStay(Collider other){
+	void OnTriggerStay(Collision other){
 		
 		if(other.gameObject.tag == "chicken"){
 			transform.LookAt(chicken);
@@ -31,6 +33,10 @@ public class ChickenWolfAI : MonoBehaviour {
 				if(other.gameObject.tag == "wall"){
 					Turn();
 				}
+				if(other.gameObject.tag == "wcheckpoint"){
+					Turn();
+				}
+				
 		}
 		
 	}
@@ -51,6 +57,9 @@ public class ChickenWolfAI : MonoBehaviour {
 		}
 		if(other.gameObject.tag == "wolfCheck"){
 			print("Hit wolfcheck!");
+			Turn();
+		}
+		if(other.gameObject.tag == "wcheckpoint"){
 			Turn();
 		}
 		else{

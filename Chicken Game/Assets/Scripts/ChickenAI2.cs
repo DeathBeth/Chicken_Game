@@ -15,7 +15,8 @@ public class ChickenAI2 : MonoBehaviour {
 
 	public int currentHealth = 0;
 	public int maxHealth = 1;
-	
+	public Transform chickenSpawnPoint;
+	public float slowSpeed;
 
 	void Turn(){
 	int randomNum = Random.Range(0,360);
@@ -53,6 +54,10 @@ public class ChickenAI2 : MonoBehaviour {
 		transform.Translate(Vector3.forward * speed * Time.deltaTime);
 	}
 
+	public void Slowwander(){
+		transform.Translate(Vector3.forward * slowSpeed * Time.deltaTime);
+	}
+
 
 
 	void OnCollisionEnter(Collision other){
@@ -68,7 +73,9 @@ public class ChickenAI2 : MonoBehaviour {
 			currentHealth -= 1;
 			if(currentHealth <= 0){
 				print("Chicken killed!");
-				Destroy(this.gameObject);
+				transform.position = chickenSpawnPoint.position;
+				int randomNum = Random.Range(0,360);
+				transform.Rotate(0,randomNum,0);
 				ScoreManager.MinusPoints(minusPoints);	
 	}
 		}
@@ -77,7 +84,9 @@ public class ChickenAI2 : MonoBehaviour {
 			currentHealth -=1;
 			if(currentHealth <=0){
 				print("Chicken eaten!");
-				Destroy(this.gameObject);
+				transform.position = chickenSpawnPoint.position;
+				int randomNum = Random.Range(0,360);
+				transform.Rotate(0,randomNum,0);
 				ScoreManager.MinusPoints(minusPoints);
 			}
 		}

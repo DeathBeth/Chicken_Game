@@ -5,7 +5,6 @@ using UnityEngine;
 public class WolfAI2 : MonoBehaviour {
 
 	public float speed=5.0f;
-	public float rotSpeed=120.0f;
 	Vector3 turnAround = new Vector3(0,1,0);
 	public Transform chicken;
 	public Transform player;
@@ -13,7 +12,9 @@ public class WolfAI2 : MonoBehaviour {
 	public GameObject pcHealth;
 	public float chaseSpeed = 6.0f;
 	
-
+	void Start(){
+		Turn();
+	}
 	void Update () {
 	
 		Wander();
@@ -28,11 +29,13 @@ public class WolfAI2 : MonoBehaviour {
 			print("Wolf is following!");
 				if(other.gameObject.tag == "wall"){
 					Turn();
+				if(other.gameObject.tag == "wcheckpoint"){
+					Turn();
+				}
 				}
 		}
 		
 	}
-
 	void Turn(){
 	int randomNum = Random.Range(0,360);
 	transform.Rotate(0,randomNum,0);
@@ -49,6 +52,9 @@ public class WolfAI2 : MonoBehaviour {
 		}
 		if(other.gameObject.tag == "wolfCheck"){
 			print("Hit wolfcheck!");
+			Turn();
+		}
+		if(other.gameObject.tag == "wcheckpoint"){
 			Turn();
 		}
 		else{
